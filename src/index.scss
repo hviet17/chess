@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+$spriteWidth: 270;
+$spriteHeight: 90;
+$rows: 2;
+$columns: 6;
+$white-y: 0;
+$black-y: $spriteHeight / $rows;
+
+$scale: 2;
+$square-size: $spriteHeight / 2 * $scale;
+
+#board {
+  .square {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: #{$spriteWidth * 2}px;
+    width: #{$square-size}px;
+    height: #{$square-size}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.dark {
+      background-color: #ccc;
+    }
+
+    &.white, &.black {
+      background-image: url("assets/sprite.svg");
+    }
+
+    &.white {
+       background-position-y: 0;
+
+       &.king {
+         background-position-x: 0;
+       }
+
+       &.queen {
+         background-position-x: -#{$square-size}px;
+       }
+
+       &.bishop {
+         background-position-x: -#{$square-size * 2}px;
+       }
+
+       &.knight {
+         background-position-x: -#{$square-size * 3}px;
+       }
+
+       &.rook {
+         background-position-x: -#{$square-size * 4}px;
+       }
+
+       &.pawn {
+         background-position-x: -#{$square-size * 5}px;
+       }
+     }
+
+    &.black {
+      background-position-y: -#{$square-size}px;
+
+      &.king {
+        background-position-x: 0;
+      }
+
+      &.queen {
+        background-position-x: -#{$square-size}px;
+      }
+
+      &.bishop {
+        background-position-x: -#{$square-size * 2}px;
+      }
+
+      &.knight {
+        background-position-x: -#{$square-size * 3}px;
+      }
+
+      &.rook {
+        background-position-x: -#{$square-size * 4}px;
+      }
+
+      &.pawn {
+        background-position-x: -#{$square-size * 5}px;
+      }
+    }
+  }
+
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+}
